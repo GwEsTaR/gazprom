@@ -2,10 +2,11 @@ from tkinter import *
 from tkinter import ttk
 import time
 
-def Button(btn_click):
 
+def btn_click():
 
- 
+    print("eblan")
+
 
 root = Tk()
 
