@@ -20,7 +20,7 @@ entry = ttk.Entry()
 entry.pack(anchor=NW, padx=6, pady=6)
 
 
-btn = Button(root, text='da')
+btn = Button(root, text='da', comman=btn_click)
 btn.pack()
 
 root.mainloop()
