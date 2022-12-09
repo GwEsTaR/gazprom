@@ -2,6 +2,10 @@ from tkinter import *
 from tkinter import ttk
 import time
 
+def Button(btn_click):
+
+
+ 
 
 root = Tk()
 
@@ -16,7 +20,7 @@ entry = ttk.Entry()
 entry.pack(anchor=NW, padx=6, pady=6)
 
 
-btn = Button(root, text='da')
+btn = Button(root, text='da', command=btn_click)
 btn.pack()
 
 root.mainloop()
