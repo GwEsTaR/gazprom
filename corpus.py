@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
-import mysql.connector
+#import mysql.connector
 import pymysql
 
 root = Tk()
@@ -16,7 +16,7 @@ root.resizable(width=False, height=False)
 Label(text="Регистратура", font=('Arial Bold',25)).grid(row=1,column=0, sticky=W, padx=350, pady=5)
 Label(text="Имя", font=('Arial Bold',20)).grid(row=2,column=0, sticky=W, padx=10, pady=5)
 Label(text="Фамилия", font=('Arial Bold',20)).grid(row=3,column=0, sticky=W, padx=10, pady=5)
-Label(text="Отчесвтво", font=('Arial Bold',20)).grid(row=4,column=0, sticky=W, padx=10, pady=5)
+Label(text="Отчество", font=('Arial Bold',20)).grid(row=4,column=0, sticky=W, padx=10, pady=5)
 Label(text="Телефон", font=('Arial Bold',20)).grid(row=5,column=0, sticky=W, padx=10, pady=5)
 
 nameEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=2,column=0, sticky=W, padx=170, pady=5)
