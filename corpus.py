@@ -6,7 +6,7 @@ from tkinter import messagebox
 import pymysql
 
 def connection():
-    con=pymysql.connect(host='localhost', user='root', password='', db='Bolnica')
+    con=pymysql.connect(host='localhost', user='root', password='root', db='Bolnica')
     return con
 
 def refreshTable():
@@ -30,11 +30,11 @@ def read():
 
 
 def add():
-#    pidorid=str(.get())
     pidorname=str(nameEntry.get())
     pidorfame=str(FamEntry.get())
     pidorotc=str(OtcEntry.get())
     pidorphone=str(TelephoneEntry.get())
+    
 
     if (pidorname=='' or pidorname=='') or (pidorphone=='' or pidorfame=='') or (pidorotc=='' or pidorotc=='') or (pidorphone=='' or pidorphone==''):
         messagebox.showinfo('Chel, zapolni vse stroki')
@@ -43,7 +43,7 @@ def add():
         try:
             con=connection()
             cursor=con.cursor()
-            cursor.execute('INSERT INTO Reg VALUES (''+Имя+', '+Фамилия+', '+Отчество+', '+Телефон+'')')
+            cursor.execute("INSERT INTO Reg VALUES ('"+pidorname+", "+pidorfame+", "+pidorotc+", "+pidorphone+"')")
             con.commit()
             con.close() 
         except:
@@ -66,10 +66,14 @@ Label(text="Фамилия", font=('Arial Bold',20)).grid(row=3,column=0, sticky
 Label(text="Отчество", font=('Arial Bold',20)).grid(row=4,column=0, sticky=W, padx=10, pady=5)
 Label(text="Телефон", font=('Arial Bold',20)).grid(row=5,column=0, sticky=W, padx=10, pady=5)
 
-nameEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=2,column=0, sticky=W, padx=170, pady=5)
-FamEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=3,column=0, sticky=W, padx=170, pady=5)
-OtcEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=4,column=0, sticky=W, padx=170, pady=5)
-TelephoneEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=5,column=0, sticky=W, padx=170, pady=5)
+nameEntry=Entry(root, width=20, bd=5, font=('Arial',10))
+nameEntry.grid(row=2,column=0, sticky=W, padx=170, pady=5)
+FamEntry=Entry(root, width=20, bd=5, font=('Arial',10))
+FamEntry.grid(row=3,column=0, sticky=W, padx=170, pady=5)
+OtcEntry=Entry(root, width=20, bd=5, font=('Arial',10))
+OtcEntry.grid(row=4,column=0, sticky=W, padx=170, pady=5)
+TelephoneEntry=Entry(root, width=20, bd=5, font=('Arial',10))
+TelephoneEntry.grid(row=5,column=0, sticky=W, padx=170, pady=5)
 
 addButton=Button(root,text="Добавить", font=('Arial',12), command=add).grid(row=7, pady=3)
 
