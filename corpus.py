@@ -4,7 +4,7 @@ from tkinter import ttk
 from tkinter import messagebox
 import mysql.connector
 import pymysql
-
+1
 def connection():
     con=pymysql.connect(host='localhost', user='root', password='root', db='Bolnica')
     return con
