@@ -4,7 +4,7 @@ from tkinter import ttk
 from tkinter import messagebox
 #import mysql.connector
 import pymysql
-1
+
 def connection():
     con=pymysql.connect(host='localhost', user='root', password='', db='Bolnica')
     return con
@@ -29,6 +29,29 @@ def read():
     return result
 
 
+def add():
+#    pidorid=str(.get())
+    pidorname=str(nameEntry.get())
+    pidorfame=str(FamEntry.get())
+    pidorotc=str(OtcEntry.get())
+    pidorphone=str(TelephoneEntry.get())
+
+    if (pidorname=='' or pidorname=='') or (pidorphone=='' or pidorfame=='') or (pidorotc=='' or pidorotc=='') or (pidorphone=='' or pidorphone==''):
+        messagebox.showinfo('Chel, zapolni vse stroki')
+        return
+    else:
+        try:
+            con=connection()
+            cursor=con.cursor()
+            cursor.execute('INSERT INTO Bolnica VALUES (''+Имя+', '+Фамилия+', '+Отчество+', '+Телефон+'')')
+            con.commit()
+            con.close() 
+        except:
+            messagebox.showinfo('Chel, name ispolzyetca')
+            return
+
+    refreshTable()
+
 root = Tk()
 root["bg"]='white'
 root.title('Регистратура')
@@ -48,10 +71,10 @@ FamEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=3,column=0, sti
 OtcEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=4,column=0, sticky=W, padx=170, pady=5)
 TelephoneEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=5,column=0, sticky=W, padx=170, pady=5)
 
-addButton=Button(root,text="Добавить", font=('Arial',12)).grid(row=7, pady=3)
+addButton=Button(root,text="Добавить", font=('Arial',12).grid(row=7, pady=3), command=add )
 
 
-style=ttk.Style()
+style=ttk.Style()   
 style.configure("Treeview.Heading", font=('Arial Bold',30))
 my_tree['columns']=("Имя", "Фамилия", "Отчество", "Телефон")
 
