@@ -43,7 +43,7 @@ def add():
         try:
             con=connection()
             cursor=con.cursor()
-            cursor.execute('INSERT INTO Bolnica VALUES (''+Имя+', '+Фамилия+', '+Отчество+', '+Телефон+'')')
+            cursor.execute('INSERT INTO Reg VALUES (''+Имя+', '+Фамилия+', '+Отчество+', '+Телефон+'')')
             con.commit()
             con.close() 
         except:
@@ -71,7 +71,7 @@ FamEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=3,column=0, sti
 OtcEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=4,column=0, sticky=W, padx=170, pady=5)
 TelephoneEntry=Entry(root, width=20, bd=5, font=('Arial',10)).grid(row=5,column=0, sticky=W, padx=170, pady=5)
 
-addButton=Button(root,text="Добавить", font=('Arial',12).grid(row=7, pady=3), command=add )
+addButton=Button(root,text="Добавить", font=('Arial',12), command=add).grid(row=7, pady=3)
 
 
 style=ttk.Style()   
