@@ -2,11 +2,11 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
-import mysql.connector
+#import mysql.connector
 import pymysql
 1
 def connection():
-    con=pymysql.connect(host='localhost', user='root', password='root', db='Bolnica')
+    con=pymysql.connect(host='localhost', user='root', password='', db='Bolnica')
     return con
 
 def refreshTable():
